@@ -1,0 +1,33 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; --bg:#101827; --panel:#19263a; --tile:#263b58; --accent:#72e0c0; }
+body {
+  margin:0; min-height:100vh; padding: max(22px, env(safe-area-inset-top)) 16px max(22px, env(safe-area-inset-bottom));
+  display:flex; justify-content:center; align-items:center;
+  background: radial-gradient(circle at 50% 0%, #263d5b 0, var(--bg) 52%);
+  color:#f5f7fb; font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+}
+.app { width:min(100%, 440px); }
+header { text-align:center; margin-bottom:22px; }
+.eyebrow { color:var(--accent); letter-spacing:.22em; font-size:11px; font-weight:800; }
+h1 { margin:7px 0 3px; font-size:clamp(32px, 9vw, 44px); letter-spacing:-.04em; }
+.subtitle { margin:0; color:#aebbd0; }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-bottom:14px; }
+.stat { background:rgba(25,38,58,.9); border:1px solid #31445f; border-radius:15px; padding:11px 8px; text-align:center; }
+.stat span { display:block; color:#91a2bb; font-size:10px; letter-spacing:.12em; font-weight:700; }
+.stat strong { display:block; font-size:21px; margin-top:3px; }
+.game-card { background:rgba(25,38,58,.92); border:1px solid #31445f; border-radius:22px; padding:14px; box-shadow:0 18px 50px #0005; }
+.board { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; aspect-ratio:1; }
+.tile {
+  border:0; border-radius:13px; background:linear-gradient(145deg,#355578,#243b59);
+  color:#fff; font-size:clamp(23px,7vw,34px); font-weight:800;
+  box-shadow:inset 0 1px #ffffff22, 0 4px 10px #0003;
+  cursor:pointer; touch-action:manipulation; transition:transform .12s, background .12s;
+}
+.tile:active { transform:scale(.94); }
+.tile.empty { background:rgba(5,12,22,.35); box-shadow:inset 0 2px 10px #0005; cursor:default; }
+.tile.correct { background:linear-gradient(145deg,#258b7a,#176457); }
+.message { min-height:26px; text-align:center; color:#aebbd0; margin:13px 0 9px; font-size:14px; }
+.message.win { color:var(--accent); font-weight:800; }
+.new-game { width:100%; border:0; border-radius:14px; padding:15px; background:var(--accent); color:#10251f; font-size:16px; font-weight:900; cursor:pointer; }
+footer { text-align:center; color:#8495ad; font-size:12px; margin-top:17px; }
+@media (max-width:360px) { .game-card { padding:10px; } .board { gap:6px; } .tile { border-radius:10px; } }
